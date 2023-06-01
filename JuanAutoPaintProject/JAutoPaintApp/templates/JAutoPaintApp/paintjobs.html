@@ -1,0 +1,69 @@
+{% extends 'JAutoPaintApp/index.html' %} {% load static %} {% block content %}
+<!doctype html>
+
+<head>
+    <title> Paint Jobs | Juan's Auto Paint </title>
+</head>   
+<style>
+    .table th{
+        background-color: #ea6a5b ;
+    }
+</style>
+<body>
+    <div class="container">
+        <br>
+        <br>
+        <br>
+        <h1 style="text-align: center;">Paint Jobs</h1>
+
+        <h4> Paint Jobs in Progress </h4>
+        <table class="table table-light" style="width: 50%;">
+            <thead>
+                <tr class="">
+                    <th scope="col">Plate No.</th>
+                    <th scope="col">Current Color</th>
+                    <th scope="col">Target Color</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pj in pjobs %}
+                <tr>
+                    <td scope="row"> {{ pj.plate_num }}</th>
+                    <td> {{ pj.curr_color }}</td>
+                    <td> {{ pj.target_color }}</td>
+                    <td style="color:#ea6a5b"> Mark as Completed </td>
+                </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+
+
+        <h4> Paint Queue </h4>
+        <table class="table table-light" style="width: 50%;">
+            <thead>
+                <tr class="">
+                    <th scope="col">Plate No.</th>
+                    <th scope="col">Current Color</th>
+                    <th scope="col">Target Color</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pj in pjobs %}
+                <tr>
+                    <td scope="row"> {{ pj.plate_num }}</th>
+                    <td> {{ pj.curr_color }}</td>
+                    <td> {{ pj.target_color }}</td>
+                    <td style="color:#ea6a5b"> Mark as Completed </td>
+                </tr>
+                {% endfor %} 
+            </tbody>
+        </table>
+        
+    </div>
+    
+</body>
+</html>
+
+{% endblock %}
